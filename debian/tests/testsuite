@@ -1,0 +1,4 @@
+#!/bin/sh
+set -e
+
+for py in $(py3versions -s); do $py debian/tests/cleo-test.py greet Debian && $py debian/tests/cleo-test.py greet Debian --yell 2>&1; done

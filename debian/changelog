@@ -1,5 +1,123 @@
-template-repository (1.0-1) unstable; urgency=medium
+python-cleo (2.1.0-1) unstable; urgency=medium
 
-  * Initial release
+  * New upstream release.
+  * d/control: Update my contact information.
+    - Also update it in d/copyright.
+  * d/patches/0001-Stop-using-rapidfuzz.-Revert-upstream-change-in-Debi.patch:
+    Update patch according to the new upstream release.
 
- -- Tsic404 <liuheng@deepin.org>  Sat, 28 Jan 2023 13:46:49 +0800
+ -- Emmanuel Arias <eamanu@debian.org>  Fri, 10 Nov 2023 17:32:30 -0300
+
+python-cleo (2.0.1-5) unstable; urgency=medium
+
+  * d/patches: Update
+    0001-Stop-using-rapidfuzz.-Revert-upstream-change-in-Debi.patch to add
+    pylev package depedency in pyproject.toml.
+
+ -- Emmanuel Arias <eamanu@yaerobi.com>  Tue, 17 Jan 2023 18:44:36 -0300
+
+python-cleo (2.0.1-4) unstable; urgency=medium
+
+  * source-only upload.
+
+ -- Emmanuel Arias <eamanu@yaerobi.com>  Tue, 17 Jan 2023 16:15:02 -0300
+
+python-cleo (2.0.1-3) unstable; urgency=medium
+
+  * d/control Add Breaks for python3-poetry-core (<< 1.4.0-2) .
+
+ -- Emmanuel Arias <eamanu@yaerobi.com>  Mon, 09 Jan 2023 23:46:14 -0300
+
+python-cleo (2.0.1-2) unstable; urgency=medium
+
+  * d/control Add Breaks for python3-poetry << 1.3.1+dfsg-1.
+    - Remove the Breaks for python3-poetry-core.
+
+ -- Emmanuel Arias <eamanu@yaerobi.com>  Sun, 08 Jan 2023 11:15:49 -0300
+
+python-cleo (2.0.1-1) unstable; urgency=medium
+
+  * New upstream version.
+  * d/copyright: Add copyright year for upstream files according to LICENSE.
+  * d/control: Bump Standards-Version to 4.6.2 (from 4.6.1.1; no further
+    changes).
+  * d/patches: Remove 0001-change_regex_string_to_less_permissive_one.patch.
+    This security issue was fixed in upstream.
+  * d/patches: Add patch to replace the use of rapidfuzz in favor of pylev.
+    This is a temporal patch until rapidfuzz be in Debian.
+  * d/tests/control: Add python3-pylev as Dependency.
+
+ -- Emmanuel Arias <eamanu@yaerobi.com>  Thu, 05 Jan 2023 22:48:42 -0300
+
+python-cleo (1.0.0a5-3) unstable; urgency=medium
+
+  * d/control: Add Breaks for python3-poetry-core << 1.3.2-3.
+
+ -- Emmanuel Arias <eamanu@yaerobi.com>  Wed, 07 Dec 2022 13:01:47 -0300
+
+python-cleo (1.0.0a5-2) unstable; urgency=medium
+
+  * d/control Add Breaks for python3-poetry << 1.2.2+dfsg-1.
+
+ -- Emmanuel Arias <eamanu@yaerobi.com>  Mon, 05 Dec 2022 14:13:55 -0300
+
+python-cleo (1.0.0a5-1) unstable; urgency=medium
+
+  * d/watch: Update link to upstream, now is under python-poetry umbrella.
+    - Remove debian uupdate from watch file.
+  * New upstream version.
+  * d/patches: Add patch from upstream to avoid ReDoS security issue
+    (CVE-2022-42966). Closes: #1024018.
+  * d/control: Bump Standards-Version to 4.6.1.1 (from 4.6.0.1; no further
+    changes).
+  * d/control: Remove python3-clickit from B-Depends, it's not longer needed.
+  * d/copyright: Update Source key in the file.
+  * d/control: Update Homepage to the new upstream repository.
+  * d/patches: Remove
+    0001-add_stylesheet-deprecated-use-add_css_file-instead.patch file is
+    already applied for upstream.
+  * d/control: Add python3-pylev as Build Depends.
+  * d/tests: Update cleo-tests.py according to the new upstream release API.
+  * d/control: Remove trivial autopkgtest-pkg-python.
+
+ -- Emmanuel Arias <eamanu@yaerobi.com>  Tue, 22 Nov 2022 12:39:05 -0300
+
+python-cleo (0.8.1-4) unstable; urgency=medium
+
+  * source-only upload
+
+ -- Emmanuel Arias <eamanu@yaerobi.com>  Fri, 21 Jan 2022 15:58:05 -0300
+
+python-cleo (0.8.1-3) unstable; urgency=medium
+
+  * d/rules: Add LANGUAGE environment variable to made reproducible.
+  * d/copyright: Update year copyright of debian/* files.
+  * d/control: Bump Standards-Version to 4.6.0.1. No changes needed.
+  * wrap-and-sort.
+  * d/control: Add <!nocheck> profile to Build Depends used in tests.
+  * d/control: Build with pybuild's pyproject plugin. Add
+    pybuild-plugin-pyproject as Build Depends.
+    - Use poetry-core to build package.
+  * d/patches: Update patches.
+    - Remove patch that add setup.py file to build. It's not longer need.
+    - Update the name of the patch to be ordered.
+  * d/control: Build Depends in dh-sequence-sphinxdoc to start using
+    <!nodoc> profile.
+
+ -- Emmanuel Arias <eamanu@yaerobi.com>  Mon, 17 Jan 2022 17:30:10 -0300
+
+python-cleo (0.8.1-2) unstable; urgency=medium
+
+  * d/control: Fix VCS-* links
+  * d/python-cleo-doc.doc-base: fix ships folder name (Closes: #994863).
+  * d/patches: add patch to use add_css_file method instead of
+    add_stylesheet in documentation.
+  * d/control: build depend on :any for python3-all.
+
+ -- Emmanuel Arias <eamanu@yaerobi.com>  Sat, 16 Oct 2021 23:05:44 -0300
+
+python-cleo (0.8.1-1) unstable; urgency=medium
+
+  * Initial release (Closes: #958366)
+
+ -- Emmanuel Arias <eamanu@yaerobi.com>  Tue, 04 May 2021 20:04:11 -0300
