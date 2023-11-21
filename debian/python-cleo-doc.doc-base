@@ -1,0 +1,10 @@
+Document: python-cleo-doc
+Title: Python cleo Manual
+Author: Sébastien Eustace <sebastien@eustace.io>
+Abstract: create beautiful and testable command-line 
+ interfaces
+Section: Programming/Python
+
+Format: HTML
+Index: /usr/share/doc/python-cleo-doc/html/index.html
+Files: /usr/share/doc/python-cleo-doc/html/*.html
