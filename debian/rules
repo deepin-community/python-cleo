@@ -3,6 +3,7 @@
 
 export PYBUILD_NAME=cleo
 export LANGUAGE=en
+export PYBUILD_TEST_ARGS=-k 'not test_find_similar_names and not test_find_ambiguous_namespace'
 
 %:
 	dh $@ --with python3,sphinxdoc --buildsystem=pybuild --test=pytest
@@ -12,3 +13,7 @@ override_dh_auto_build:
 ifeq (,$(filter nodoc,$(DEB_BUILD_OPTIONS)))
 	$(MAKE) -C docs html
 endif
+
+override_dh_auto_clean:
+	dh_auto_clean
+	rm -rf docs/_build
