@@ -1,0 +1,29 @@
+Description: Use Levenshtein to calculate distance in command name
+ python3-cleo is only used by poetry. Currently, poetry upstream pin an old
+ python-cleo version. Current python-cleo version produce a bad behaviour
+ on Debian, so this patch use the old way to calculate distances.
+Author: Emmanuel Arias <eamanu@debian.org>
+Last-Update: 2025-03-09
+---
+This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
+--- a/src/cleo/_utils.py
++++ b/src/cleo/_utils.py
+@@ -6,6 +6,8 @@
+ from difflib import SequenceMatcher
+ from html.parser import HTMLParser
+ 
++from rapidfuzz.distance import Levenshtein
++
+ 
+ class TagStripper(HTMLParser):
+     def __init__(self) -> None:
+@@ -55,7 +57,8 @@
+     if " " in name:
+         names = [name for name in names if " " in name]
+     for actual_name in names:
+-        distance = SequenceMatcher(None, actual_name, name).ratio()
++        # Get Levenshtein distance between the input and each command name
++        distance = Levenshtein.distance(name, actual_name)
+ 
+         is_similar = distance <= len(name) / 3
+         substring_index = actual_name.find(name)

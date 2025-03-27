@@ -2,5 +2,6 @@ Tests: testsuite
 Depends: python3-all,
          python3-crashtest,
          python3-pylev,
+         python3-rapidfuzz,
          @,
 Restrictions: allow-stderr
